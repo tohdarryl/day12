@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>How many numbers do you wish to generate ?</h1>
+    <form action="#"
+        data-th-action="@{/rand/generate}"
+        data-th-object="${generateObj}"
+        method="post"> 
+        
+        <!-- th:action="@{}" passes data to @PostMapping method in controller with method="post"; localhost:8080/rand/generate -->
+        <!-- th:object="${generateObj}" declares and binds model object to form, to be used for collecting the FORM data-->
+    <p>
+        <!-- to include textbox/field-->
+        <!-- Since we got th:object="${}" above, we can use "*{}" to equate to "${generateObj.numberVal}"  -->
+        <!-- "text" inputted in field = generateObj.numberVal()  -->
+        <!-- Binds form field to the property of the model -->
+        <input type="text" data-th-field="*{numberVal}"/>
+        <!-- to include "Generate" button -->
+        <button type="submit">Generate</button>
+
+    </p>
+        
+    </form>
+</body>
+
+</html>
